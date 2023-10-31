@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/TvPassword" />
 
     <EditText
-        android:id="@+id/editNamaLogin"
+        android:id="@+id/editUsernameLogin"
         android:layout_width="300dp"
         android:layout_height="40dp"
         android:background="@drawable/rounded_editteks"
@@ -51,43 +51,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.143"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNamaLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/editUsernameLogin" />
 
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="88dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="72dp"
         android:background="@drawable/round_button"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintHorizontal_bias="0.848"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/TvToSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="80dp"
         android:text="SignUp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnLogin"
-        app:layout_constraintHorizontal_bias="0.334"
+        app:layout_constraintHorizontal_bias="0.353"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="120dp"
         android:layout_height="50dp"
-        android:layout_marginTop="332dp"
-        app:layout_constraintBottom_toTopOf="@+id/TvToSign"
+        android:src="@drawable/img_login"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.115"
+        app:layout_constraintHorizontal_bias="0.137"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:src="@drawable/img_login"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
