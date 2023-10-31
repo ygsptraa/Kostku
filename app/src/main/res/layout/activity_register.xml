@@ -8,4 +8,63 @@
     tools:context=".RegisterActivity"
     android:background="@drawable/bg_register">
 
+  <TextView
+      android:id="@+id/TvUsername"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="Username"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.138"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.446"
+      tools:ignore="MissingConstraints" />
+
+  <EditText
+      android:id="@+id/editPasswordRegister"
+      android:layout_width="300dp"
+      android:layout_height="40dp"
+      android:layout_marginTop="4dp"
+      android:background="@drawable/rounded_editteks"
+      android:inputType="textPassword"
+      android:padding="5dip"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.45"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/TvPassword" />
+
+  <EditText
+      android:id="@+id/editNamaRegister"
+      android:layout_width="300dp"
+      android:layout_height="40dp"
+      android:layout_marginTop="4dp"
+      android:background="@drawable/rounded_editteks"
+      android:padding="5dip"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.45"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/TvUsername" />
+
+  <TextView
+      android:id="@+id/TvPassword"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
+      android:text="Password"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.143"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/editNamaRegister" />
+
+  <Button
+      android:id="@+id/btnLogin"
+      android:layout_width="94dp"
+      android:layout_height="48dp"
+      android:layout_marginBottom="44dp"
+      android:text="Login"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.851"
+      app:layout_constraintStart_toStartOf="parent" />
   </androidx.constraintlayout.widget.ConstraintLayout>
