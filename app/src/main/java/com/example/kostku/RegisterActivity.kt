@@ -1,8 +1,10 @@
 package com.example.kostku
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
 import com.example.kostku.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -46,6 +48,20 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             RegisterFirebase(email,password)
+        }
+    }
+
+    //melakukan registrasi pengguna dengan Firebase Authentication, dan memberikan umpan balik kepada pengguna apakah registrasi berhasil atau jika terjadi kesalahan.
+    private fun RegisterFirebase(email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email,password)
+        .addOnCompleteListener(this){
+            if (it.isSuccessful){
+                Toast.makeText(this,"Register Berhasil", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this,LoginActivity::class.java)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
