@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
+import android.widget.Toast
 import com.example.kostku.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 
@@ -48,6 +49,21 @@ class LoginActivity : AppCompatActivity() {
                 binding.editPasswordLogin.requestFocus()
                 return@setOnClickListener
             }
+            LoginFirebase(email,password)
         }
+
+    }
+    //Melakukan login pengguna dengan menggunakan email dan password yang ada di database
+    private fun LoginFirebase(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email,password)
+            .addOnCompleteListener(this){
+                if (it.isSuccessful){
+                    Toast.makeText(this,"Selamat Datang $email", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this,MainActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 }
