@@ -12,13 +12,12 @@
       android:id="@+id/TvEmail"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="4dp"
       android:text="Email"
-      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.132"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/imageView2"
-      app:layout_constraintVertical_bias="0.115"
+      app:layout_constraintTop_toBottomOf="@+id/editNameRegister"
       tools:ignore="MissingConstraints" />
 
   <EditText
@@ -33,6 +32,30 @@
       app:layout_constraintHorizontal_bias="0.45"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/TvPassword" />
+
+  <EditText
+      android:id="@+id/editNameRegister"
+      android:layout_width="300dp"
+      android:layout_height="40dp"
+      android:layout_marginTop="8dp"
+      android:background="@drawable/rounded_editteks"
+      android:inputType="text"
+      android:padding="5dip"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.45"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/TvNam" />
+
+  <TextView
+      android:id="@+id/TvNam"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="19dp"
+      android:text="Name"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.133"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
   <EditText
       android:id="@+id/editEmailRegister"
@@ -86,10 +109,11 @@
       android:id="@+id/imageView2"
       android:layout_width="124dp"
       android:layout_height="53dp"
-      android:layout_marginTop="284dp"
       android:src="@drawable/img_signup"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.121"
+      app:layout_constraintHorizontal_bias="0.087"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.379" />
 </androidx.constraintlayout.widget.ConstraintLayout>

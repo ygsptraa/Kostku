@@ -3,9 +3,10 @@ package com.example.kostku
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.kostku.databinding.ActivityLoginBinding
+import com.example.kostku.Fragment.FavoritFragment
+import com.example.kostku.Fragment.HomeFragment
+import com.example.kostku.Fragment.ProfilFragment
 import com.example.kostku.databinding.ActivityMainBinding
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId){
 
-                R.id.favorit -> replaceFragment(FavoritFragment())
                 R.id.home -> replaceFragment(HomeFragment())
+                R.id.favorit -> replaceFragment(FavoritFragment())
                 R.id.profil -> replaceFragment(ProfilFragment())
 
                 else ->{

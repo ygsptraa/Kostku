@@ -24,6 +24,7 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
+        //menambahkan OnclickListener pada button login
         binding.btnLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -31,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             val email = binding.editUsernameLogin.text.toString()
             val password = binding.editPasswordLogin.text.toString()
+
             //Validasi email
             if (email.isEmpty()){
                 binding.editUsernameLogin.error = "Email Harus diisi"
@@ -49,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.editPasswordLogin.requestFocus()
                 return@setOnClickListener
             }
-            LoginFirebase(email,password)
+            LoginFirebase(email,password,)
         }
 
     }
@@ -62,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
                     val intent = Intent(this,MainActivity::class.java)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Email atau Password anda salah", Toast.LENGTH_SHORT).show()
                 }
             }
     }

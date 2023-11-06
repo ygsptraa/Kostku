@@ -1,10 +1,11 @@
-package com.example.kostku
+package com.example.kostku.Fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.kostku.R
 
 class ProfilFragment : Fragment() {
     override fun onCreateView(

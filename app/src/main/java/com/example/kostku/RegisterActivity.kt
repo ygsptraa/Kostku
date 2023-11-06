@@ -27,6 +27,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.btnSign.setOnClickListener {
             val email = binding.editEmailRegister.text.toString()
             val password = binding.editPasswordRegister.text.toString()
+            val name = binding.editNameRegister.text.toString()
             //Validasi email
             if (email.isEmpty()){
                 binding.editEmailRegister.error = "Email Harus diisi"
