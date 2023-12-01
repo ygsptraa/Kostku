@@ -8,8 +8,8 @@ import com.example.kostku.Repository.UserRepository
 class UserViewModel : ViewModel() {
 
     private val repository : UserRepository
-    private val _allKost = MutableLiveData<List<User>>()
-    val allKost : LiveData<List<User>> = _allKost
+    private val _allKost = MutableLiveData<List<Kost>>()
+    val allKost : LiveData<List<Kost>> = _allKost
 
     init {
         repository = UserRepository().getInstance()

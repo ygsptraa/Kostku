@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-    //Melakukan login pengguna dengan menggunakan email dan password yang ada di database
+    //Melakukan rule login pengguna dengan menggunakan email dan password yang ada di database
     private fun LoginFirebase(email: String, password: String) {
         auth.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener(this){

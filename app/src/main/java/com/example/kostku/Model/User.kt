@@ -1,3 +1,3 @@
 package com.example.kostku.Model
 
-data class User(var namaKos : String ?=null)
+data class Kost(var namaKos : String ?=null)

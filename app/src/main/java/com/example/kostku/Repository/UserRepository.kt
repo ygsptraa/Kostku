@@ -1,7 +1,7 @@
 package com.example.kostku.Repository
 
 import androidx.lifecycle.MutableLiveData
-import com.example.kostku.Model.User
+import com.example.kostku.Model.Kost
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -22,12 +22,12 @@ class UserRepository {
             instance
         }
     }
-    fun loadKost(kostList : MutableLiveData<List<User>>){
+    fun loadKost(kostList : MutableLiveData<List<Kost>>){
         databaseReference.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 try {
-                    val _kostList : List<User> = snapshot.children.map { dataSnapshot ->
-                        dataSnapshot.getValue(User::class.java)!!
+                    val _kostList : List<Kost> = snapshot.children.map { dataSnapshot ->
+                        dataSnapshot.getValue(Kost::class.java)!!
                     }
                     kostList.postValue(_kostList)
                 }catch (e : Exception){
