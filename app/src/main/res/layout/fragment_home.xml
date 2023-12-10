@@ -24,12 +24,10 @@
 
     </androidx.cardview.widget.CardView>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycleview"
-            android:layout_width="match_parent"
-            android:layout_height="422dp"
-            android:layout_marginTop="250dp"/>
-
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="531dp"
+        android:layout_marginTop="250dp" />
 
 </FrameLayout>

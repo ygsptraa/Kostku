@@ -1,90 +1,81 @@
 package com.example.kostku.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.kostku.Adapter.Adapter
 import com.example.kostku.Model.Kost
-import com.example.kostku.Model.UserViewModel
-import com.example.kostku.R
-import com.google.firebase.FirebaseApp
+import com.example.kostku.databinding.FragmentHomeBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-private lateinit var viewModel : UserViewModel
-private lateinit var userRecyclerView : RecyclerView
-//lateinit var adapter: Adapter
-
 class HomeFragment : Fragment() {
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var imageSlider: ImageSlider
+    //new
+    private var _binding : FragmentHomeBinding? = null
+    private val binding get() = _binding!!
 
-    // ... rest of your code ...
+    private lateinit var kostList: ArrayList<Kost>
+    private lateinit var firebaseRef : DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.fragment_home, container, false)
+    ): View {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        firebaseRef = FirebaseDatabase.getInstance().getReference("Kost")
+        kostList = arrayListOf()
 
-        imageSlider = view.findViewById(R.id.sliderlayout)
-        recyclerView = view.findViewById(R.id.recycleview)
+        fetchData()
 
+        binding.recycleview.apply {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(this.context)
+        }
+
+        // Image slider
         val imageList = ArrayList<SlideModel>()
         imageList.add(SlideModel("https://bit.ly/2YoJ77H"))
         imageList.add(SlideModel("https://bit.ly/2BteuF2"))
         imageList.add(SlideModel("https://bit.ly/3fLJf72"))
 
-        imageSlider.setImageList(imageList)
+        binding.sliderlayout.setImageList(imageList)
 
-        FirebaseApp.initializeApp(requireContext())
+        return binding.root
+    }
 
-        val databaseReference = FirebaseDatabase.getInstance().getReference("kost")
-        databaseReference.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val kostList = mutableListOf<Kost>()
-                for (snapshot in dataSnapshot.children) {
-                    val namaKost = snapshot.child("namaKost").getValue(String::class.java)
-                    val alamatKost = snapshot.child("alamatKost").getValue(String::class.java)
+    private fun fetchData() {
+        firebaseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                // Tambahkan logging untuk memeriksa nilai snapshot
+                Log.d("FirebaseData", "Snapshot: $snapshot")
 
-                    // Assuming you have a Kost data class
-                    val kost = Kost(namaKost)
-                    kostList.add(kost)
+                kostList.clear()
+                if (snapshot.exists()) {
+                    for (kostSnap in snapshot.children) {
+                        val kost = kostSnap.getValue(Kost::class.java)
+                        kostList.add(kost!!)
+                    }
+
+                    // Tambahkan logging untuk memeriksa data yang dimasukkan ke list
+                    Log.d("FirebaseData", "KostList: $kostList")
+
+                    // Set adapter ke RecyclerView
+                    val rvAdapter = Adapter(kostList)
+                    binding.recycleview.adapter = rvAdapter
                 }
-
-                // Set up RecyclerView with an Adapter
-                val adapter = Adapter(kostList)
-                recyclerView.adapter = adapter
-                recyclerView.layoutManager = LinearLayoutManager(context)
             }
 
-            override fun onCancelled(databaseError: DatabaseError) {
-                // Handle errors
+            override fun onCancelled(error: DatabaseError) {
+                // Tambahkan logging untuk memeriksa kesalahan
+                Log.e("FirebaseError", "Terjadi error! $error")
             }
         })
-
-        return view
     }
 }
-
-
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        userRecyclerView = view.findViewById(R.id.recycleview)
-//        userRecyclerView.layoutManager = LinearLayoutManager(context)
-//        userRecyclerView.setHasFixedSize(true)
-//        adapter = Adapter()
-//        userRecyclerView.adapter = adapter
-//        viewModel = ViewModelProvider(this).get(UserViewModel::class.java)
-//        viewModel.allKost.observe(viewLifecycleOwner, {
-//            adapter.updateKostList(it)
-//        })
-//    }

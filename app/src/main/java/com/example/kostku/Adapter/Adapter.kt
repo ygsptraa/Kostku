@@ -1,62 +1,33 @@
 package com.example.kostku.Adapter
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kostku.Model.Kost
-import com.example.kostku.R
+import com.example.kostku.databinding.KostItemBinding
+import com.squareup.picasso.Picasso
 
-class Adapter(private val kostList: List<Kost>) : RecyclerView.Adapter<Adapter.MyViewHolder>() {
+class Adapter(private val kostList : java.util.ArrayList<Kost>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+    class ViewHolder(val binding: KostItemBinding) : RecyclerView.ViewHolder(binding.root){
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.user_item, parent, false
-        )
-        return MyViewHolder(itemView)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(KostItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun getItemCount(): Int {
         return kostList.size
     }
-//    fun updateKostList(kostList: List<Kost>){
-//        this.kostList.clear()
-//        this.kostList.addAll(kostList)
-//        notifyDataSetChanged()
-//    }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = kostList[position]
-
-        holder.namaKost.text = currentItem.namaKos
-    }
-
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-
-        val namaKost : TextView = itemView.findViewById(R.id.tvNamaKos)
+        holder.apply {
+            binding.apply {
+                tvNama.text = currentItem.nama
+                tvAlamat.text = currentItem.alamat
+                tvId.text = currentItem.id
+                Picasso.get().load(currentItem.imgUrl).into(tvImage)
+            }
+        }
     }
 }
-//class Adapter(private val dataList: List<String>) : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
-//
-//    // ViewHolder untuk menyimpan referensi ke elemen tampilan
-//    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        val textView: TextView = itemView.findViewById(R.id.tvNamaKos)
-//    }
-//
-//    // Membuat ViewHolder baru
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-//        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.user_item, parent, false)
-//        return MyViewHolder(itemView)
-//    }
-//
-//    // Menghubungkan data dengan elemen dalam ViewHolder
-//    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-//        val currentItem = dataList[position]
-//        holder.textView.text = currentItem
-//    }
-//
-//    // Mengembalikan jumlah total item dalam data set
-//    override fun getItemCount(): Int {
-//        return dataList.size
-//    }
-//}
