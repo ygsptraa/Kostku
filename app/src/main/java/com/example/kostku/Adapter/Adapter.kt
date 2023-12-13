@@ -7,12 +7,25 @@ import com.example.kostku.databinding.KostItemBinding
 import com.squareup.picasso.Picasso
 
 class Adapter(private val kostList : java.util.ArrayList<Kost>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
-    class ViewHolder(val binding: KostItemBinding) : RecyclerView.ViewHolder(binding.root){
 
+    private lateinit var mListener: onItemClickListener
+    interface onItemClickListener{
+        fun onItemClick(position: Int)
+    }
+    fun setOnItemClickListener(clickListener: onItemClickListener){
+        mListener = clickListener
+    }
+
+    class ViewHolder(val binding: KostItemBinding, clickListener: onItemClickListener) : RecyclerView.ViewHolder(binding.root){
+        init {
+            itemView.setOnClickListener {
+                clickListener.onItemClick(adapterPosition)
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(KostItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return ViewHolder(KostItemBinding.inflate(LayoutInflater.from(parent.context),parent,false),mListener)
     }
 
     override fun getItemCount(): Int {

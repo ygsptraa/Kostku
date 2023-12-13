@@ -1,5 +1,6 @@
 package com.example.kostku.Fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.kostku.Adapter.Adapter
+import com.example.kostku.DetailActivity
 import com.example.kostku.Model.Kost
 import com.example.kostku.databinding.FragmentHomeBinding
 import com.google.firebase.database.DataSnapshot
@@ -69,6 +71,18 @@ class HomeFragment : Fragment() {
                     // Set adapter ke RecyclerView
                     val rvAdapter = Adapter(kostList)
                     binding.recycleview.adapter = rvAdapter
+
+                    rvAdapter.setOnItemClickListener(object : Adapter.onItemClickListener {
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(activity, DetailActivity::class.java)
+                            intent.putExtra("id", kostList[position].id)
+                            intent.putExtra("nama", kostList[position].nama)
+                            intent.putExtra("alamat", kostList[position].alamat)
+                            intent.putExtra("imgUrl", kostList[position].imgUrl)
+                            startActivity(intent)
+                        }
+                    })
+
                 }
             }
 
