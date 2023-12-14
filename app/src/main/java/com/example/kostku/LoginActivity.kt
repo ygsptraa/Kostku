@@ -18,17 +18,16 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         auth = FirebaseAuth.getInstance()
-
+        if (auth.currentUser != null) {
+            startMainActivity()
+            return
+        }
         //Menambahkan clicklistener untuk register
         binding.TvToSign.setOnClickListener{
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
         //menambahkan OnclickListener pada button login
-        binding.btnLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
         binding.btnLogin.setOnClickListener {
             val email = binding.editUsernameLogin.text.toString()
             val password = binding.editPasswordLogin.text.toString()
@@ -54,6 +53,11 @@ class LoginActivity : AppCompatActivity() {
             LoginFirebase(email,password,)
         }
 
+    }
+    private fun startMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish() // Optional: Finish the current activity to prevent coming back on pressing the back button.
     }
     //Melakukan rule login pengguna dengan menggunakan email dan password yang ada di database
     private fun LoginFirebase(email: String, password: String) {
