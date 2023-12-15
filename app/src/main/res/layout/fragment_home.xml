@@ -7,12 +7,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.HomeFragment">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="KostKu"
+        android:fontFamily="@font/poppins_extrabold"
+        android:textColor="@color/birungu"
+        android:textSize="30sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
+
+    <SearchView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/round_button"
+        android:layout_marginRight="10dp"
+        android:layout_marginStart="300dp"/>
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="6dp"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="60dp">
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/sliderlayout"
@@ -30,6 +48,6 @@
         android:id="@+id/recycleview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="250dp" />
+        android:layout_marginTop="270dp" />
 
 </FrameLayout>

@@ -43,9 +43,9 @@ class HomeFragment : Fragment() {
 
         // Image slider
         val imageList = ArrayList<SlideModel>()
-        imageList.add(SlideModel("https://bit.ly/2YoJ77H"))
-        imageList.add(SlideModel("https://bit.ly/2BteuF2"))
-        imageList.add(SlideModel("https://bit.ly/3fLJf72"))
+        imageList.add(SlideModel("https://rb.gy/xc7xks"))
+        imageList.add(SlideModel("https://rb.gy/daglat"))
+        imageList.add(SlideModel("https://rb.gy/ni6mly"))
 
         binding.sliderlayout.setImageList(imageList)
 
