@@ -6,114 +6,143 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:background="@drawable/bg_register">
-
-  <TextView
-      android:id="@+id/TvEmail"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="4dp"
-      android:text="Email"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.132"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/editNameRegister"
-      tools:ignore="MissingConstraints" />
+    android:background="@color/biruputih">
 
   <EditText
       android:id="@+id/editPasswordRegister"
-      android:layout_width="300dp"
-      android:layout_height="40dp"
-      android:layout_marginTop="4dp"
+      android:layout_width="350dp"
+      android:layout_height="50dp"
       android:background="@drawable/rounded_editteks"
+      android:fontFamily="@font/poppins_regular"
+      android:hint="Masukan Password"
       android:inputType="textPassword"
       android:padding="5dip"
+      android:textColor="@color/biruputih"
+      android:textSize="14sp"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.45"
+      app:layout_constraintHorizontal_bias="0.491"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/TvPassword" />
+      app:layout_constraintTop_toBottomOf="@+id/editEmailRegister"
+      app:layout_constraintVertical_bias="0.145" />
 
   <EditText
       android:id="@+id/editNameRegister"
-      android:layout_width="300dp"
-      android:layout_height="40dp"
-      android:layout_marginTop="8dp"
+      android:layout_width="350dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="480dp"
       android:background="@drawable/rounded_editteks"
+      android:fontFamily="@font/poppins_regular"
+      android:hint="Masukan Nama"
       android:inputType="text"
       android:padding="5dip"
+      android:textColor="@color/biruputih"
+      android:textSize="14sp"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.45"
+      app:layout_constraintHorizontal_bias="0.491"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/TvNam" />
-
-  <TextView
-      android:id="@+id/TvNam"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="19dp"
-      android:text="Name"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.133"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+      app:layout_constraintTop_toTopOf="parent" />
 
   <EditText
       android:id="@+id/editEmailRegister"
-      android:layout_width="300dp"
-      android:layout_height="40dp"
-      android:layout_marginTop="4dp"
+      android:layout_width="350dp"
+      android:layout_height="50dp"
+      android:layout_marginTop="36dp"
       android:background="@drawable/rounded_editteks"
+      android:fontFamily="@font/poppins_regular"
+      android:hint="Masukan Email"
       android:padding="5dip"
+      android:textColor="@color/biruputih"
+      android:textSize="14sp"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.45"
+      app:layout_constraintHorizontal_bias="0.491"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/TvEmail" />
-
-  <TextView
-      android:id="@+id/TvPassword"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="4dp"
-      android:text="Password"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.143"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/editEmailRegister" />
+      app:layout_constraintTop_toBottomOf="@+id/editNameRegister" />
 
   <Button
       android:id="@+id/btnSign"
-      android:layout_width="85dp"
-      android:layout_height="35dp"
+      android:layout_width="350dp"
+      android:layout_height="41dp"
       android:layout_marginBottom="30dp"
       android:background="@drawable/round_button"
-      android:text="Sign"
+      android:text="Register"
+      android:fontFamily="@font/poppins_regular"
+      android:textSize="14sp"
+      android:textColor="@color/biruputih"
+      android:textAllCaps="false"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.655"
-      app:layout_constraintStart_toEndOf="@+id/btnLogin"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.99" />
-
-  <Button
-      android:id="@+id/btnLogin"
-      android:layout_width="85dp"
-      android:layout_height="35dp"
-      android:layout_marginStart="64dp"
-      android:layout_marginBottom="36dp"
-      android:background="@drawable/round_button"
-      android:text="Login"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
-
-  <ImageView
-      android:id="@+id/imageView2"
-      android:layout_width="124dp"
-      android:layout_height="53dp"
-      android:src="@drawable/img_signup"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.087"
+      app:layout_constraintHorizontal_bias="0.491"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.379" />
+      app:layout_constraintVertical_bias="0.941" />
+
+  <TextView
+      android:id="@+id/btnLogin"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="50dp"
+      android:fontFamily="@font/poppins_regular"
+      android:text="Login"
+      android:textColor="@color/birungu"
+      android:textSize="13sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.636"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="48dp"
+      android:fontFamily="@font/poppins_regular"
+      android:text="Sudah punya akun?"
+      android:textColor="@color/birungu"
+      android:textSize="13sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.355"
+      app:layout_constraintStart_toStartOf="parent" />
+
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/poppins_bold"
+      android:text="Jelajahi Kost Tanpa Batas!"
+      android:textColor="@color/birungu"
+      android:textSize="28sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.507"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.109" />
+
+  <ImageView
+      android:id="@+id/imageView"
+      android:layout_width="300dp"
+      android:layout_height="300dp"
+      android:src="@drawable/ic_rumah2"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.495"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.213" />
+
+  <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="@font/poppins_regular"
+      android:text="Buat akun terlebih dahulu untuk menjelajahi fitur kostku!"
+      android:textAlignment="center"
+      android:textColor="@color/birungu"
+      android:textSize="14sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.421" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
