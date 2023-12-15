@@ -5,87 +5,125 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="@drawable/bg_login">
+    android:background="@color/biruputih">
 
-    <TextView
-        android:id="@+id/TvUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Username"
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_rumah1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.144"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.213" />
 
     <EditText
         android:id="@+id/editPasswordLogin"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
         android:background="@drawable/rounded_editteks"
+        android:hint="Password"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="14sp"
+        android:textColor="@color/biruputih"
         android:inputType="textPassword"
         android:padding="5dip"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TvPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editUsernameLogin"
+        app:layout_constraintVertical_bias="0.162" />
 
     <EditText
         android:id="@+id/editUsernameLogin"
-        android:layout_width="300dp"
-        android:layout_height="40dp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="528dp"
         android:background="@drawable/rounded_editteks"
+        android:fontFamily="@font/poppins_regular"
+        android:hint="Email"
         android:padding="5dip"
+        android:textColor="@color/biruputih"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TvUsername" />
-
-    <TextView
-        android:id="@+id/TvPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.143"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editUsernameLogin" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="88dp"
+        android:layout_width="350dp"
         android:layout_height="41dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/round_button"
         android:text="Login"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="14sp"
+        android:textColor="@color/biruputih"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.848"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/TvToSign"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
-        android:text="SignUp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogin"
-        app:layout_constraintHorizontal_bias="0.353"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:src="@drawable/img_login"
+        android:layout_marginBottom="48dp"
+        android:text="Register"
+        android:textSize="13sp"
+        android:textColor="@color/birungu"
+        android:fontFamily="@font/poppins_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Belum punya akun?"
+        android:textSize="13sp"
+        android:textColor="@color/birungu"
+        android:fontFamily="@font/poppins_regular"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.348"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintVertical_bias="0.213" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_regular"
+        android:text="Cari kost? Kostku solusinya!"
+        android:textColor="@color/birungu"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.421" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="Selamat Datang di KostKu"
+        android:textColor="@color/birungu"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
