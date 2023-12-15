@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/biruputih"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Fragment.HomeFragment">
 
@@ -18,6 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             app:iss_auto_cycle="true"
+            android:background="@color/biruputih"
             app:iss_delay="0"
             app:iss_period="1000"
             app:iss_text_align="CENTER" />
@@ -27,7 +29,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleview"
         android:layout_width="match_parent"
-        android:layout_height="531dp"
+        android:layout_height="match_parent"
         android:layout_marginTop="250dp" />
 
 </FrameLayout>

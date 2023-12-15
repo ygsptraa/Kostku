@@ -4,18 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/biruputih"
     tools:context=".Fragment.ProfilFragment">
 
     <Button
         android:id="@+id/btnSignOut"
-        android:layout_width="106dp"
+        android:layout_width="350dp"
         android:layout_height="41dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/round_button"
-        android:text="SignOut?"
+        android:text="Sign Out"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="14sp"
+        android:textColor="@color/biruputih"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.918"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.941" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -75,7 +75,7 @@ class HomeFragment : Fragment() {
                     rvAdapter.setOnItemClickListener(object : Adapter.onItemClickListener {
                         override fun onItemClick(position: Int) {
                             val intent = Intent(activity, DetailActivity::class.java)
-                            intent.putExtra("id", kostList[position].id)
+//                            intent.putExtra("id", kostList[position].id)
                             intent.putExtra("nama", kostList[position].nama)
                             intent.putExtra("alamat", kostList[position].alamat)
                             intent.putExtra("imgUrl", kostList[position].imgUrl)

@@ -38,7 +38,7 @@ class Adapter(private val kostList : java.util.ArrayList<Kost>) : RecyclerView.A
             binding.apply {
                 tvNama.text = currentItem.nama
                 tvAlamat.text = currentItem.alamat
-                tvId.text = currentItem.id
+//                tvId.text = currentItem.id
                 Picasso.get().load(currentItem.imgUrl).into(tvImage)
             }
         }

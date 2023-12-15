@@ -12,18 +12,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
-        android:background="#EBC9EF">
+        android:background="#FFFFFF">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="300dp"
+            android:layout_height="90dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="5dp"
+            app:cardBackgroundColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/tvImage"
-            app:layout_constraintTop_toTopOf="parent"
-            app:cardBackgroundColor="#EBC9EF">
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
                 android:id="@+id/tvNama"
@@ -32,6 +32,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="2dp"
                 android:text="Nama"
+                android:textColor="@color/birungu"
+                android:fontFamily="@font/poppins_regular"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -42,17 +44,19 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="33dp"
                 android:text="Alamat"
+                android:textColor="@color/birungu"
+                android:fontFamily="@font/poppins_light"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tvId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="60dp"
-                android:text="ID"
-                android:textSize="10sp" />
+            <!--            <TextView-->
+<!--                android:id="@+id/tvId"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:layout_marginTop="60dp"-->
+<!--                android:text="ID"-->
+<!--                android:textSize="10sp" />-->
         </androidx.cardview.widget.CardView>
 
         <ImageView
