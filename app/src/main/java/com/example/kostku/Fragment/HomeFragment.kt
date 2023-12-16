@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.models.SlideModel
 import com.example.kostku.Adapter.Adapter
@@ -20,12 +21,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class HomeFragment : Fragment() {
-    //new
-    private var _binding : FragmentHomeBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
     private lateinit var kostList: ArrayList<Kost>
-    private lateinit var firebaseRef : DatabaseReference
+    private lateinit var firebaseRef: DatabaseReference
+    private lateinit var rvAdapter: Adapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -49,15 +50,22 @@ class HomeFragment : Fragment() {
 
         binding.sliderlayout.setImageList(imageList)
 
+        binding.btnSearch.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                searchList(newText)
+                return false
+            }
+        })
         return binding.root
     }
 
     private fun fetchData() {
         firebaseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                // Tambahkan logging untuk memeriksa nilai snapshot
-                Log.d("FirebaseData", "Snapshot: $snapshot")
-
                 kostList.clear()
                 if (snapshot.exists()) {
                     for (kostSnap in snapshot.children) {
@@ -65,31 +73,37 @@ class HomeFragment : Fragment() {
                         kostList.add(kost!!)
                     }
 
-                    // Tambahkan logging untuk memeriksa data yang dimasukkan ke list
-                    Log.d("FirebaseData", "KostList: $kostList")
-
-                    // Set adapter ke RecyclerView
-                    val rvAdapter = Adapter(kostList)
+                    rvAdapter = Adapter(kostList)
                     binding.recycleview.adapter = rvAdapter
 
                     rvAdapter.setOnItemClickListener(object : Adapter.onItemClickListener {
                         override fun onItemClick(position: Int) {
                             val intent = Intent(activity, DetailActivity::class.java)
-//                            intent.putExtra("id", kostList[position].id)
                             intent.putExtra("nama", kostList[position].nama)
                             intent.putExtra("alamat", kostList[position].alamat)
                             intent.putExtra("imgUrl", kostList[position].imgUrl)
                             startActivity(intent)
                         }
                     })
-
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Tambahkan logging untuk memeriksa kesalahan
                 Log.e("FirebaseError", "Terjadi error! $error")
             }
         })
+    }
+
+    private fun searchList(text: String?) {
+        val searchList = ArrayList<Kost>()
+        for (kost in kostList) {
+            if (kost.nama?.lowercase()?.contains(text?.lowercase() ?: "") == true) {
+                searchList.add(kost)
+            }
+            if (kost.alamat?.lowercase()?.contains(text?.lowercase() ?: "") == true) {
+                searchList.add(kost)
+            }
+        }
+        rvAdapter.searchDataList(searchList)
     }
 }

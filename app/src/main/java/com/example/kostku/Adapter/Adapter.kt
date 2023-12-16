@@ -6,17 +6,20 @@ import com.example.kostku.Model.Kost
 import com.example.kostku.databinding.KostItemBinding
 import com.squareup.picasso.Picasso
 
-class Adapter(private val kostList : java.util.ArrayList<Kost>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private var kostList: ArrayList<Kost>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
-    interface onItemClickListener{
+
+    interface onItemClickListener {
         fun onItemClick(position: Int)
     }
-    fun setOnItemClickListener(clickListener: onItemClickListener){
+
+    fun setOnItemClickListener(clickListener: onItemClickListener) {
         mListener = clickListener
     }
 
-    class ViewHolder(val binding: KostItemBinding, clickListener: onItemClickListener) : RecyclerView.ViewHolder(binding.root){
+    class ViewHolder(val binding: KostItemBinding, clickListener: onItemClickListener) :
+        RecyclerView.ViewHolder(binding.root) {
         init {
             itemView.setOnClickListener {
                 clickListener.onItemClick(adapterPosition)
@@ -25,11 +28,19 @@ class Adapter(private val kostList : java.util.ArrayList<Kost>) : RecyclerView.A
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(KostItemBinding.inflate(LayoutInflater.from(parent.context),parent,false),mListener)
+        return ViewHolder(
+            KostItemBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            mListener
+        )
     }
 
     override fun getItemCount(): Int {
         return kostList.size
+    }
+
+    fun searchDataList(searchList: ArrayList<Kost>) {
+        kostList = searchList
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -38,7 +49,6 @@ class Adapter(private val kostList : java.util.ArrayList<Kost>) : RecyclerView.A
             binding.apply {
                 tvNama.text = currentItem.nama
                 tvAlamat.text = currentItem.alamat
-//                tvId.text = currentItem.id
                 Picasso.get().load(currentItem.imgUrl).into(tvImage)
             }
         }
