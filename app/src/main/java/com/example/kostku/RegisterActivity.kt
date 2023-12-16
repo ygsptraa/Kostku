@@ -25,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         //Menambahkan clicklistener pada button login
-        binding.btnLogin.setOnClickListener {
+        binding.btnLogin.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
@@ -39,30 +39,56 @@ class RegisterActivity : AppCompatActivity() {
                     .show()
             }
             //Validasi email
-            if (email.isEmpty()) {
+            if (email.isEmpty()){
                 binding.editEmailRegister.error = "Email Harus diisi"
                 binding.editEmailRegister.requestFocus()
                 return@setOnClickListener
             }
             //validasi email tidak sesuai
-            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                 binding.editEmailRegister.error = "Email tidak valid"
                 binding.editPasswordRegister.requestFocus()
                 return@setOnClickListener
             }
             //Validasi password
-            if (password.isEmpty()) {
+            if(password.isEmpty()) {
                 binding.editPasswordRegister.error = "Password Harus Diisi"
                 binding.editPasswordRegister.requestFocus()
                 return@setOnClickListener
             }
             //validasi password
-            if (password.length < 6) {
+            if(password.length < 6){
                 binding.editPasswordRegister.error = "Password Minimal 6 Karakter"
                 binding.editPasswordRegister.requestFocus()
                 return@setOnClickListener
             }
-            RegisterFirebase(userName, email, password)
+            RegisterFirebase(userName,email,password)
         }
+    }
+
+    //melakukan registrasi pengguna dengan Firebase Authentication, dan memberikan umpan balik kepada pengguna apakah registrasi berhasil atau jika terjadi kesalahan.
+    private fun RegisterFirebase(userName:String, email: String, password: String) {
+        auth.createUserWithEmailAndPassword(email,password)
+            .addOnCompleteListener(this){
+                if (it.isSuccessful){
+                    val user: FirebaseUser? = auth.currentUser
+                    val userId:String = user!!.uid
+
+                    databaseReference = FirebaseDatabase.getInstance().getReference("users").child(userId)
+
+                    val hashMap:HashMap<String,String> = HashMap()
+                    hashMap.put("userId",userId)
+                    hashMap.put("userName",userName)
+                    hashMap.put("profileImage","")
+
+                    databaseReference.setValue(hashMap).addOnCompleteListener(this){
+                        if (it.isSuccessful){
+                            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }
+                    }
+                }
+            }
     }
 }
