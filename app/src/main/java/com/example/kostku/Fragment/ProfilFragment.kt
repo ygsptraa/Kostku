@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
@@ -40,7 +41,7 @@ class ProfilFragment : Fragment() {
     private lateinit var userImageProfile: ImageView
     private lateinit var etUserName: EditText
     private lateinit var btnSave: Button
-
+    private lateinit var btnAjukanKost: TextView
     private var filePath: Uri? = null
     private lateinit var storage: FirebaseStorage
     private lateinit var storageRef: StorageReference
@@ -90,6 +91,7 @@ class ProfilFragment : Fragment() {
 
         btnSave = binding.btnSave
         userImageProfile = binding.userImageProfile
+        btnAjukanKost = binding.btnAjukanKost
 
         userImageProfile.setOnClickListener {
             chooseImage()
@@ -99,6 +101,14 @@ class ProfilFragment : Fragment() {
             uploadImage()
             binding.progressBar.visibility = View.VISIBLE
         }
+
+
+        btnAjukanKost.setOnClickListener {
+            val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", "kelompok73a@gmail.com", null))
+            startActivity(Intent.createChooser(emailIntent, "Send email..."))
+        }
+
+
 
         return binding.root
     }
@@ -144,7 +154,6 @@ class ProfilFragment : Fragment() {
                 }
         }
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         auth = FirebaseAuth.getInstance()
