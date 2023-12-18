@@ -1,12 +1,16 @@
 package com.example.kostku.Adapter
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.example.kostku.Model.FavoritModel
 import com.example.kostku.Model.Kost
 import com.example.kostku.databinding.KostItemBinding
+import com.google.firebase.database.DatabaseReference
 import com.squareup.picasso.Picasso
 
-class Adapter(private var kostList: ArrayList<Kost>) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private var kostList: ArrayList<Kost>, val database: DatabaseReference) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
 
@@ -50,7 +54,20 @@ class Adapter(private var kostList: ArrayList<Kost>) : RecyclerView.Adapter<Adap
                 tvNama.text = currentItem.nama
                 tvAlamat.text = currentItem.alamat
                 Picasso.get().load(currentItem.imgUrl).into(tvImage)
+
+                buttonFavorit.setOnClickListener {
+                    val id = database.push().key!!
+                    val data = FavoritModel(id,currentItem.nama!!,currentItem.alamat!!)
+
+                    database.child(id).setValue(data).addOnSuccessListener {
+
+                    }.addOnFailureListener {
+
+                    }
+
+                }
             }
+
         }
     }
 }

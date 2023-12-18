@@ -26,6 +26,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var kostList: ArrayList<Kost>
     private lateinit var firebaseRef: DatabaseReference
+    private lateinit var firebaseRefFavorit: DatabaseReference
     private lateinit var rvAdapter: Adapter
 
     override fun onCreateView(
@@ -33,6 +34,7 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         firebaseRef = FirebaseDatabase.getInstance().getReference("Kost")
+        firebaseRefFavorit = FirebaseDatabase.getInstance().getReference("favorit")
         kostList = arrayListOf()
 
         fetchData()
@@ -73,7 +75,7 @@ class HomeFragment : Fragment() {
                         kostList.add(kost!!)
                     }
 
-                    rvAdapter = Adapter(kostList)
+                    rvAdapter = Adapter(kostList,firebaseRefFavorit)
                     binding.recycleview.adapter = rvAdapter
 
                     rvAdapter.setOnItemClickListener(object : Adapter.onItemClickListener {

@@ -4,4 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/biruputih"
-    tools:context=".Fragment.FavoritFragment"/>
+    tools:context=".Fragment.FavoritFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rVfavorit"
+        android:layout_height="match_parent" />
+</FrameLayout>
