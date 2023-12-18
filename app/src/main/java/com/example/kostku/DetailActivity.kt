@@ -11,6 +11,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var tvNama: TextView
     private lateinit var tvAlamat : TextView
     private lateinit var tvImage : ImageView
+    private lateinit var tvHarga : TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
@@ -21,10 +22,12 @@ class DetailActivity : AppCompatActivity() {
         tvNama = findViewById(R.id.tvNama)
         tvAlamat = findViewById(R.id.tvAlamat)
         tvImage = findViewById(R.id.tvImage)
+        tvHarga = findViewById(R.id.tvHarga)
          }
     private fun setValuesToViews(){
         tvNama.text = intent.getStringExtra("nama")
         tvAlamat.text = intent.getStringExtra("alamat")
+        tvHarga.text = intent.getStringExtra("harga")
         val imageUrl = intent.getStringExtra("imgUrl")
         Glide.with(this).load(imageUrl).into(tvImage)
 

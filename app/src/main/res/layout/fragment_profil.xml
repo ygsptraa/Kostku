@@ -21,16 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_weight="2"
-            android:text="Profil"
-            android:textSize="20sp"
-            android:textColor="#8692F7"
-            android:textStyle="bold" />
-
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
@@ -49,8 +39,8 @@
         android:id="@+id/btnSignOut"
         android:layout_width="350dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="30dp"
         android:background="@drawable/round_button"
+        android:layout_marginBottom="30dp"
         android:fontFamily="@font/poppins_regular"
         android:text="Sign Out"
         android:textAllCaps="false"
@@ -61,13 +51,13 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.954" />
+        app:layout_constraintVertical_bias="0.956" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="120dp"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="10dp"
@@ -77,8 +67,8 @@
 
         <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/userImageProfile"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
@@ -89,11 +79,13 @@
 
         <EditText
             android:id="@+id/etUserName"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@color/white"
-            android:fontFamily="sans-serif-black"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_editteks"
+            android:fontFamily="@font/poppins_regular"
+            android:textColor="@color/birungu"
+            android:textStyle="bold"
             android:maxLines="1"
             android:minHeight="48dp"
             android:text="Username"
@@ -104,8 +96,9 @@
             android:id="@+id/btnSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:background="#8AC7E3"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/round_button"
+            android:fontFamily="@font/poppins_regular"
             android:text="Save"
             android:textColor="#FFFFFF"
             android:visibility="gone" />
@@ -114,7 +107,7 @@
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminateTint="@color/black"
+            android:indeterminateTint="@color/birungu"
             android:visibility="gone" />
 
     </LinearLayout>
@@ -131,10 +124,15 @@
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:id="@+id/tvIngin"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
+            android:fontFamily="@font/poppins_regular"
             android:text="Ingin Kost anda tampil di aplikasi ini?,"
+            android:textAlignment="center"
+            android:textColor="@color/birungu"
+            android:textSize="16sp"
             app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
@@ -143,15 +141,25 @@
         <TextView
             android:id="@+id/btnAjukanKost"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="Ajukan disini"
-            android:textColor="#8692F7"
-            app:layout_constraintBottom_toTopOf="@+id/btnSignOut"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-            app:layout_constraintVertical_bias="0.875" />
+            android:fontFamily="@font/poppins_bold"
+            android:text="Klik!"
+            android:textColor="@color/birungu"
+            />
     </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:fontFamily="@font/poppins_extrabold"
+        android:text="Halo,"
+        android:textAlignment="center"
+        android:textColor="@color/birungu"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:layout_editor_absoluteX="-53dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

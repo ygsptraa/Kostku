@@ -24,28 +24,28 @@
             app:layout_constraintStart_toEndOf="@+id/tvImage"
             app:layout_constraintTop_toTopOf="parent">
 
+            <!--            <TextView-->
+<!--                android:id="@+id/tvAlamat"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="5dp"-->
+<!--                android:layout_marginTop="33dp"-->
+<!--                android:fontFamily="@font/poppins_light"-->
+<!--                android:text="Fasilitas"-->
+<!--                android:textColor="@color/birungu"-->
+<!--                android:textSize="15sp"-->
+<!--                android:textStyle="bold" />-->
+
             <TextView
                 android:id="@+id/tvNama"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/poppins_regular"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poppins_bold"
                 android:text="Nama"
                 android:textColor="@color/birungu"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvAlamat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="33dp"
-                android:fontFamily="@font/poppins_light"
-                android:text="Fasilitas"
-                android:textColor="@color/birungu"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -60,12 +60,13 @@
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
-            <Button
+            <ImageView
                 android:id="@+id/buttonFavorit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="130dp"
-                android:text="Button" />
+                android:layout_marginTop="33dp"
+                android:layout_marginStart="200dp"
+                android:src="@drawable/ic_love" />
 
             <!--            <TextView-->
             <!--                android:id="@+id/tvId"-->

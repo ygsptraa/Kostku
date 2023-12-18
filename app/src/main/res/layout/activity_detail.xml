@@ -34,18 +34,34 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/tvAlamat"
+        android:id="@+id/tvHarga"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Alamat"
+        android:layout_marginTop="25dp"
+        android:text="Harga"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/poppins_regular"
-        android:textSize="14sp"
+        android:textSize="20sp"
         android:textColor="@color/birungu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.045"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvImage" />
+
+    <TextView
+        android:id="@+id/tvAlamat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Fasilitas"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/poppins_regular"
+        android:textSize="20sp"
+        android:textColor="@color/birungu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHarga" />
 
     <ImageButton
         android:layout_width="50dp"

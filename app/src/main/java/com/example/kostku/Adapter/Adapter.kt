@@ -52,7 +52,7 @@ class Adapter(private var kostList: ArrayList<Kost>, val database: DatabaseRefer
         holder.apply {
             binding.apply {
                 tvNama.text = currentItem.nama
-                tvAlamat.text = currentItem.alamat
+//                tvAlamat.text = currentItem.alamat
                 tvHarga.text = currentItem.harga
                 Picasso.get().load(currentItem.imgUrl).into(tvImage)
 

@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.Kostku" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/birungu</item>
+        <item name="colorPrimary">@color/teal_200</item>
         <item name="colorPrimaryVariant">@color/biruputih</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/birungu</item>
-        <item name="android:navigationBarColor">@color/birungu</item>
+        <item name="android:navigationBarColor">@color/biruputih</item>
         <!-- Customize your theme here. -->
     </style>
 </resources>
