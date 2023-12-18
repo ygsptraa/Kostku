@@ -14,22 +14,34 @@
         android:background="#FFFFFF"
         android:padding="20dp">
 
+        <ImageView
+            android:id="@+id/tvImage"
+            android:layout_width="92dp"
+            android:layout_height="85dp"
+            android:layout_marginStart="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.52"
+            app:srcCompat="@drawable/ic_sponbob" />
+
         <TextView
             android:id="@+id/tvNamaFavorit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
             android:text="Nama"
             android:textColor="@color/black"
             android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvImage"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvAlamat"
+            android:id="@+id/tvHarga"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Alamat"
+            android:text="Harga"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -43,10 +55,11 @@
             android:id="@+id/btnTest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="@+id/tvAlamat"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.977"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/tvNamaFavorit"
             app:layout_constraintTop_toTopOf="@+id/tvNamaFavorit"
             app:layout_constraintVertical_bias="0.6" />

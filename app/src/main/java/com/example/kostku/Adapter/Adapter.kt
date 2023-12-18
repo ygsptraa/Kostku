@@ -53,11 +53,12 @@ class Adapter(private var kostList: ArrayList<Kost>, val database: DatabaseRefer
             binding.apply {
                 tvNama.text = currentItem.nama
                 tvAlamat.text = currentItem.alamat
+                tvHarga.text = currentItem.harga
                 Picasso.get().load(currentItem.imgUrl).into(tvImage)
 
                 buttonFavorit.setOnClickListener {
                     val id = database.push().key!!
-                    val data = FavoritModel(id,currentItem.nama!!,currentItem.alamat!!)
+                    val data = FavoritModel(id,currentItem.nama!!,currentItem.harga!!,currentItem.imgUrl!!)
 
                     database.child(id).setValue(data).addOnSuccessListener {
 

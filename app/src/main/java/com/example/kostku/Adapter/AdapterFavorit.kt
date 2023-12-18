@@ -7,6 +7,7 @@ import android.content.Context
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.kostku.Model.FavoritModel
 import com.example.kostku.databinding.ItemFavoritBinding
 import com.google.firebase.database.FirebaseDatabase
@@ -33,7 +34,8 @@ class AdapterFavorit(val list: List<FavoritModel>,val database: FirebaseDatabase
         holder.apply {
             binding.apply {
                 tvNamaFavorit.text = bindpos.namaKost
-                tvAlamat.text = bindpos.alamatKost
+                tvHarga.text = bindpos.harga
+                Picasso.get().load(bindpos.imgUrl).into(tvImage)
 
 
                 btnTest.setOnClickListener {

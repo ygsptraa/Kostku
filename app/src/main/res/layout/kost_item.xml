@@ -16,10 +16,10 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="243dp"
-            android:layout_height="78dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
             app:cardBackgroundColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvImage"
             app:layout_constraintTop_toTopOf="parent">
@@ -43,7 +43,19 @@
                 android:layout_marginStart="5dp"
                 android:layout_marginTop="33dp"
                 android:fontFamily="@font/poppins_light"
-                android:text="Alamat"
+                android:text="Fasilitas"
+                android:textColor="@color/birungu"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvHarga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="66dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="Harga"
                 android:textColor="@color/birungu"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -52,6 +64,7 @@
                 android:id="@+id/buttonFavorit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="130dp"
                 android:text="Button" />
 
             <!--            <TextView-->
