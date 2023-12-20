@@ -1,8 +1,6 @@
 package com.example.kostku.Adapter
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kostku.Model.FavoritModel
 import com.example.kostku.Model.Kost
@@ -58,7 +56,7 @@ class Adapter(private var kostList: ArrayList<Kost>, val database: DatabaseRefer
 
                 buttonFavorit.setOnClickListener {
                     val id = database.push().key!!
-                    val data = FavoritModel(id,currentItem.nama!!,currentItem.harga!!,currentItem.imgUrl!!)
+                    val data = FavoritModel(id,currentItem.nama!!,currentItem.harga!!,currentItem.imgUrl!!,currentItem.alamat!!)
 
                     database.child(id).setValue(data).addOnSuccessListener {
 

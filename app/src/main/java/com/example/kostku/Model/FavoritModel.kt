@@ -4,5 +4,7 @@ data class FavoritModel(
     val id: String = "",
     val namaKost: String ="",
     val harga: String ="",
-    val imgUrl: String = ""
+    val imgUrl: String = "",
+    val alamat : String? = ""
+
 )

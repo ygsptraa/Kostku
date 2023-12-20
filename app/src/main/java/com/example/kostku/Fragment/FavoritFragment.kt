@@ -8,14 +8,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.kostku.Adapter.Adapter
 import com.example.kostku.Adapter.AdapterFavorit
 import com.example.kostku.DetailActivity
 import com.example.kostku.Model.FavoritModel
-import com.example.kostku.Model.Kost
-import com.example.kostku.R
 import com.example.kostku.databinding.FragmentFavoritBinding
-import com.example.kostku.databinding.FragmentHomeBinding
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -42,9 +38,6 @@ class FavoritFragment : Fragment() {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(this.context)
         }
-
-
-
         return _binding.root
     }
 
@@ -60,7 +53,17 @@ class FavoritFragment : Fragment() {
 
                     rvAdapter = AdapterFavorit(favoritList,database)
                     _binding.rVfavorit.adapter = rvAdapter
-
+                    rvAdapter.setOnItemClickListener(object : AdapterFavorit.onItemClickListener {
+                        override fun onItemClick(position: Int) {
+                            val intent = Intent(activity, DetailActivity::class.java)
+                            intent.putExtra("nama", favoritList[position].namaKost)
+                            intent.putExtra("id", favoritList[position].id)
+                            intent.putExtra("imgUrl", favoritList[position].imgUrl)
+                            intent.putExtra("harga", favoritList[position].harga)
+                            intent.putExtra("alamat", favoritList[position].alamat)
+                            startActivity(intent)
+                        }
+                    })
 
 
                 }
