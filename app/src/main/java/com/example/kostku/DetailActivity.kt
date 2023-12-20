@@ -20,7 +20,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var tvImage : ImageView
     private lateinit var tvHarga : TextView
     private lateinit var tvKategori : TextView
-    private lateinit var tvGmaps : TextView
+    private lateinit var tvLokasi : TextView
     private lateinit var firebaseRef : DatabaseReference
 //    private lateinit var binding: ActivityDetailBinding
 //    private lateinit var btnGmpas: ImageButton
@@ -40,7 +40,7 @@ class DetailActivity : AppCompatActivity() {
         tvImage = findViewById(R.id.tvImage)
         tvHarga = findViewById(R.id.tvHarga)
 //        btnGmpas = findViewById(R.id.btnLokasi)
-        tvGmaps = findViewById(R.id.tvGmaps)
+        tvLokasi = findViewById(R.id.tvLokasi)
         tvKategori = findViewById(R.id.tvKategori)
 
          }
@@ -50,7 +50,7 @@ class DetailActivity : AppCompatActivity() {
         tvHarga.text = intent.getStringExtra("harga")
         val imageUrl = intent.getStringExtra("imgUrl")
         tvKategori.text = intent.getStringExtra("kategori")
-        tvGmaps.text = intent.getStringExtra("gmaps")
+        tvLokasi.text = intent.getStringExtra("gmaps")
         Glide.with(this).load(imageUrl).into(tvImage)
 //        binding.btnLokasi.setOnClickListener {
 //            val lokasi = Intent(Intent.ACTION_SENDTO, Uri.parse("gmaps"))

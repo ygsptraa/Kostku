@@ -62,6 +62,7 @@ class FavoritFragment : Fragment() {
                             intent.putExtra("harga", favoritList[position].harga)
                             intent.putExtra("alamat", favoritList[position].alamat)
                             intent.putExtra("kategori", favoritList[position].kategori)
+                            intent.putExtra("gmaps", favoritList[position].gmaps)
                             startActivity(intent)
                         }
                     })

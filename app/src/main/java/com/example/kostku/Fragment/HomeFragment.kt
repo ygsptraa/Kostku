@@ -86,6 +86,7 @@ class HomeFragment : Fragment() {
                             intent.putExtra("imgUrl", kostList[position].imgUrl)
                             intent.putExtra("harga", kostList[position].harga)
                             intent.putExtra("kategori", kostList[position].kategori)
+                            intent.putExtra("gmaps", kostList[position].gmaps)
                             startActivity(intent)
                         }
                     })
