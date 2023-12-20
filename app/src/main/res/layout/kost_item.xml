@@ -53,12 +53,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5dp"
-                android:layout_marginTop="65dp"
+                android:layout_marginTop="45dp"
                 android:fontFamily="@font/poppins_light"
                 android:text="Harga"
                 android:textColor="@color/birungu"
                 android:textSize="15sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvKategori"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="75dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="Kategori"
+                android:textColor="@color/birungu"
+                android:textSize="15sp" />
+
 
             <ImageView
                 android:id="@+id/buttonFavorit"

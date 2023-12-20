@@ -61,6 +61,7 @@ class FavoritFragment : Fragment() {
                             intent.putExtra("imgUrl", favoritList[position].imgUrl)
                             intent.putExtra("harga", favoritList[position].harga)
                             intent.putExtra("alamat", favoritList[position].alamat)
+                            intent.putExtra("kategori", favoritList[position].kategori)
                             startActivity(intent)
                         }
                     })

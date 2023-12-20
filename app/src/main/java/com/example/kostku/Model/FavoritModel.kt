@@ -5,6 +5,8 @@ data class FavoritModel(
     val namaKost: String ="",
     val harga: String ="",
     val imgUrl: String = "",
-    val alamat : String? = ""
+    val alamat : String? = "",
+    val kategori : String? = "",
+    val gmaps : String? = ""
 
 )

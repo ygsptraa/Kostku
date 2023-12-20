@@ -46,6 +46,7 @@ class AdapterFavorit(val list: List<FavoritModel>,val database: FirebaseDatabase
             binding.apply {
                 tvNama.text = bindpos.namaKost
                 tvHarga.text = bindpos.harga
+                tvKategori.text = bindpos.kategori
                 Picasso.get().load(bindpos.imgUrl).into(tvImage)
 
                 buttonFavorit.setOnClickListener {
