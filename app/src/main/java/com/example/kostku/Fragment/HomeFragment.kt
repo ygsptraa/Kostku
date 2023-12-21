@@ -75,7 +75,7 @@ class HomeFragment : Fragment() {
                         kostList.add(kost!!)
                     }
 
-                    rvAdapter = Adapter(kostList,firebaseRefFavorit)
+                    rvAdapter = Adapter(kostList, firebaseRefFavorit)
                     binding.recycleview.adapter = rvAdapter
 
                     rvAdapter.setOnItemClickListener(object : Adapter.onItemClickListener {
@@ -102,13 +102,36 @@ class HomeFragment : Fragment() {
     private fun searchList(text: String?) {
         val searchList = ArrayList<Kost>()
         for (kost in kostList) {
-            if (kost.nama?.lowercase()?.contains(text?.lowercase() ?: "") == true) {
-                searchList.add(kost)
-            }
-            if (kost.alamat?.lowercase()?.contains(text?.lowercase() ?: "") == true) {
+            if (kost.nama?.lowercase()?.contains(text?.lowercase() ?: "") == true ||
+                kost.alamat?.lowercase()?.contains(text?.lowercase() ?: "") == true ||
+                kost.harga?.lowercase()?.contains(text?.lowercase() ?: "") == true
+
+                    ) {
                 searchList.add(kost)
             }
         }
-        rvAdapter.searchDataList(searchList)
+
+        // Create a new adapter with the search results
+        val searchAdapter = Adapter(searchList, firebaseRefFavorit)
+        searchAdapter.setOnItemClickListener(object : Adapter.onItemClickListener {
+            override fun onItemClick(position: Int) {
+                val intent = Intent(activity, DetailActivity::class.java)
+                intent.putExtra("nama", searchList[position].nama)
+                intent.putExtra("alamat", searchList[position].alamat)
+                intent.putExtra("imgUrl", searchList[position].imgUrl)
+                intent.putExtra("harga", searchList[position].harga)
+                intent.putExtra("kategori", searchList[position].kategori)
+                intent.putExtra("gmaps", searchList[position].gmaps)
+                startActivity(intent)
+            }
+        })
+
+        // Set the new adapter to the RecyclerView
+        binding.recycleview.adapter = searchAdapter
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

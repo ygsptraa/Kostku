@@ -8,7 +8,7 @@ import com.example.kostku.databinding.KostItemBinding
 import com.google.firebase.database.DatabaseReference
 import com.squareup.picasso.Picasso
 
-class Adapter(private var kostList: ArrayList<Kost>, val database: DatabaseReference) : RecyclerView.Adapter<Adapter.ViewHolder>() {
+class Adapter(private var originalKostList: ArrayList<Kost>, val database: DatabaseReference) : RecyclerView.Adapter<Adapter.ViewHolder>() {
 
     private lateinit var mListener: onItemClickListener
 
@@ -37,27 +37,27 @@ class Adapter(private var kostList: ArrayList<Kost>, val database: DatabaseRefer
     }
 
     override fun getItemCount(): Int {
-        return kostList.size
+        return originalKostList.size
     }
 
     fun searchDataList(searchList: ArrayList<Kost>) {
-        kostList = searchList
+        originalKostList = searchList
         notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentItem = kostList[position]
+        val currentItem = originalKostList[position]
         holder.apply {
             binding.apply {
                 tvNama.text = currentItem.nama
-//                tvAlamat.text = currentItem.alamat
+                // tvAlamat.text = currentItem.alamat
                 tvHarga.text = currentItem.harga
                 tvKategori.text = currentItem.kategori
                 Picasso.get().load(currentItem.imgUrl).into(tvImage)
 
                 buttonFavorit.setOnClickListener {
                     val id = database.push().key!!
-                    val data = FavoritModel(id,currentItem.nama!!,currentItem.harga!!,currentItem.imgUrl!!,currentItem.alamat!!,currentItem.kategori!!,currentItem.gmaps!!)
+                    val data = FavoritModel(id, currentItem.nama!!, currentItem.harga!!, currentItem.imgUrl!!, currentItem.alamat!!, currentItem.kategori!!, currentItem.gmaps!!)
 
                     database.child(id).setValue(data).addOnSuccessListener {
 
@@ -70,4 +70,9 @@ class Adapter(private var kostList: ArrayList<Kost>, val database: DatabaseRefer
 
         }
     }
+
+    fun getOriginalPosition(position: Int): Int {
+        return position
+    }
 }
+
